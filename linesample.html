@@ -2,14 +2,19 @@
     <head>
         <meta charset="utf-8"/>
         <title>Chart.js demo</title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+        <script src="chartData.js"></script>
+        <script src="dateTimeHelper.js"></script>
     </head>
     <body>
-        <h1>CO2 Saved Over Time</h1>
+        <h1>CO2 Saved</h1>
         <canvas id="test" width="600" height="400"></canvas>
             <script>
                 var data = {
-                    labels: ["A", "B", "C", "D", "E", "F", "G"],
+                    labels: giveDateData(),
                     datasets: [
                         {
                             label: "My First dataset",
@@ -30,7 +35,7 @@
                             pointHoverBorderWidth: 2,
                             pointRadius: 1,
                             pointHitRadius: 10,
-                            data: [0, 5, 15, 25, 30, 35, 50],
+                            data: giveCo2Data() ,
                             spanGaps: false,
                         }
                     ]
