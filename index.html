@@ -18,13 +18,17 @@
 </head>
 <body>
 
+    <!--
+        this is breaking Address Auto complete
     <script src="main.js"></script>
+    -->
 <div data-role="page" id="main">
 
 	<div data-role="header">
         <a href="#dashboard" data-icon="bars">Dashboard</a>
 		<h1>CO2Navi</h1>
 	</div><!-- /header -->
+    <p style="text-align:center; max-height:50%"><img src="smiley-earth.png" align="middle" style="width:100%;"/></p>
 
 	<div role="main" class="ui-content">
         <!--
@@ -37,12 +41,8 @@
                     <a href="#detail" class="ui-btn" style="width:30%; float: right;" onclick="getDirectionFromGoogle()">Go</a>
                 </div>
             </li>
-            <li><a href="#detail"><img src="https://maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png" alt="France" class="ui-li-icon ui-corner-none">France</a></li>
-            <li><a href="#detail"><img src="https://maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png" alt="Germany" class="ui-li-icon">Germany</a></li>
-            <li><a href="#detail"><img src="https://maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png" alt="Great Britain" class="ui-li-icon">Great Britain</a></li>
-            <li><a href="#detail"><img src="https://maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png" alt="Finland" class="ui-li-icon">Finland</a></li>
-            <li><a href="#detail"><img src="https://maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png" alt="United States" class="ui-li-icon ui-corner-none">United States</a></li>
         </ul>
+
 	</div><!-- /content -->
 
 </div><!-- /page -->
@@ -105,11 +105,19 @@
         <ul data-role="listview" data-inset="true" data-divider-theme="a" id="feed">
             <li data-role="list-divider">Feed</li>
         </ul>
+        <a href="" class="ui-btn"onclick="clearHistory()">Clear History</a>
+
 	</div><!-- /content -->
     <script src="feed-seeded.js"></script>
+    
 </div><!-- /page -->
 
 <div data-role="page" id="detail">
+	<div data-role="header">
+        <a href="#main" data-icon="carat-l">Back</a>
+		<h1>CO2Navi</h1>
+	</div><!-- /header -->
+
 	<div role="main" class="ui-content">
         <!--
             http://demos.jquerymobile.com/1.4.0/listview/#&ui-state=dialog

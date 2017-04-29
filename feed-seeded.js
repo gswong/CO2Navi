@@ -33,6 +33,8 @@ $.getJSON("feed.json", function (data) {
             co2SavedPrefix + co2Saved + co2SavedSuffix
             );
         node.appendChild(textnode);
+        node.style="font-size:75%";
+
         document.getElementById("feed").appendChild(node);
 
     }
