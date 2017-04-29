@@ -1,23 +1,30 @@
 function giveCo2Data() {
-    var ret = [];
+    var ret = [0,0,0,0,0,0,0,0,0,0];
+    
     $.getJSON("feed.json", function (data) {
 
-        for (var i=0; i<data.length; i++)
+        for (var i=0; i<10; i++)
         {
-            ret.push(data[i].co2Saved);
+            
+            ret[i] = (data[i].co2Saved);
+            
         }
         
-    })
+    });
+    console.log(ret);
     return ret;
 }
 function giveDateData() {
-    var ret = [];
-        $.getJSON("feed.json", function (data) {
-            for(var i = 0; i < data.length; i++)
-            {
-                ret.push(getDateTimeString(data[i].date));                
-            }
-    })
+    var ret = ["","","","","","","","","",""];
+    $.getJSON("feed.json", function (data) {
+        
+        for(var i = 0; i < 10; i++)
+        {
+            
+            ret[i] = (getDateTimeString(data[i].date));
+            
+        }
+    });
     return ret;
 }
 

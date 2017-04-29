@@ -1,10 +1,60 @@
-[{
+[
+{
+"name": "Gary",  
+"transportation": "walk",
+"distance": 19, 
+"co2Saved": 2,
+"date": 1492620202000
+},      
+{
+"name": "Kyle",  
+"transportation": "bus",
+"distance": 17, 
+"co2Saved": 2,
+"date": 1492706602000
+},  
+{
 "name": "Tudor", 
 "transportation": "bike",
-"distance": 20, 
+"distance": 18, 
+"co2Saved": 10,
+"date": 1492793002000
+},  
+{
+"name": "Gary",  
+"transportation": "walk",
+"distance": 6, 
 "co2Saved": 19,
-"date": 1493484202000
-},
+"date": 1492879402000
+},      
+{
+"name": "Kyle",  
+"transportation": "walk",
+"distance": 20, 
+"co2Saved": 14,
+"date": 1492965802000
+},  
+{
+"name": "Gary",  
+"transportation": "bus",
+"distance": 13, 
+"co2Saved": 9,
+"date": 1493052202000
+},  
+{
+"name": "Gary",  
+"transportation": "walk",
+"distance": 9, 
+"co2Saved": 10,
+"date": 1493138602000
+},      
+{
+"name": "Tudor", 
+"transportation": "bike",
+"distance": 7, 
+"co2Saved": 8,
+"date": 1493225002000
+},  
 {
 "name": "Tudor", 
 "transportation": "bike",
@@ -15,56 +65,8 @@
 {
 "name": "Tudor", 
 "transportation": "bike",
-"distance": 7, 
-"co2Saved": 8,
-"date": 1493225002000
-},
-{
-"name": "Gary",  
-"transportation": "walk",
-"distance": 9, 
-"co2Saved": 10,
-"date": 1493138602000
-},
-{
-"name": "Gary",  
-"transportation": "bus",
-"distance": 13, 
-"co2Saved": 9,
-"date": 1493052202000
-},
-{
-"name": "Kyle",  
-"transportation": "walk",
 "distance": 20, 
-"co2Saved": 14,
-"date": 1492965802000
-},
-{
-"name": "Gary",  
-"transportation": "walk",
-"distance": 6, 
 "co2Saved": 19,
-"date": 1492879402 
-},
-{
-"name": "Tudor", 
-"transportation": "bike",
-"distance": 18, 
-"co2Saved": 10,
-"date": 1492793002000
-},
-{
-"name": "Kyle",  
-"transportation": "bus",
-"distance": 17, 
-"co2Saved": 2,
-"date": 1492706602000
-},
-{
-"name": "Gary",  
-"transportation": "walk",
-"distance": 19, 
-"co2Saved": 2,
-"date": 1492620202000
-}]
+"date": 1493484202000
+}  
+]
