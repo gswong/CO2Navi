@@ -243,10 +243,10 @@ function gotAllRespond(){
 			var co2NumberBasedOnMode = 1.2-0.23;
 			break;
 		  case 'BICYCLING' :
-			var co2NumberBasedOnMode = 0;
+			var co2NumberBasedOnMode = 0.1;
 			break;
 		  case "WALKING":
-			var co2NumberBasedOnMode = 0;
+			var co2NumberBasedOnMode = 0.1;
 			break;
 		  default:
 			console.log("Something went wrong with showing you CO2 levels.");
@@ -254,20 +254,19 @@ function gotAllRespond(){
 		}
 	//END BY AA
     
-    }
-    
-
-    for (var i =0; i<4; i++){
         var currentMode = order[i];
 
-        var co2Level = co2NumberBasedOnMode * (((googleDirectionRespond[currentMode].distance.value)/1609.34).toFixed(2));  //some number?
+        console.log(co2NumberBasedOnMode);
+        var worstCo2Level = (1.2 * ((googleDirectionRespond[currentMode].distance.value)/1609.34)).toFixed(2);  //some number?
+        var co2Level = (co2NumberBasedOnMode * ((googleDirectionRespond[currentMode].distance.value)/1609.34)).toFixed(2);  //some number?
+        var co2Savings = worstCo2Level - co2Level;
 
         var ul=document.getElementById("tp");
         var myList = '<li><a href="'+googleDirectionRespond[currentMode].googleMapUrl+'" onclick="updateTravelHistory(\''+currentMode+'\')">';
         myList += '<h2>'+currentMode+'</h2>';
         myList+='<p style="float:left">Distance: '+googleDirectionRespond[currentMode].distance.text+'    ';
         myList+="CO2 saving: "+'</p>';
-        myList+='<p style="float:right; margin:0px"><strong style="font-size:300%;">'+co2Level+'</strong> saving</p>';
+        myList+='<p style="float:right; margin:0px"><strong style="font-size:300%;">'+co2Savings.toFixed(2)+'</strong> saving</p>';
         myList+='<p class="ui-li-aside">'+googleDirectionRespond[currentMode].duration+'</p>';
         myList+='</a></li>';
         ul.innerHTML+=myList;
