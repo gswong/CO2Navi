@@ -49,7 +49,12 @@ function updateTravelHistory(mode){
 
 
 function clearHistory(){
-    localStorage.setItem("CO2Navi", "{}");
+    if (confirm('Are you sure you want to clear your history?')) {
+        // Save it!
+        localStorage.setItem("CO2Navi", "{}");
+    } else {
+        // Do nothing!
+    }
 }
 
 
@@ -130,6 +135,16 @@ var numberOfRespondRecived=0;
 var googleDirectionRespond={};
 
 function calculateAndDisplayRoute(directionsService, destinationName, travelMode) {
+    if (typeof(currentPosition)=="undefined"){
+        currentPosition={
+            "coords": {
+                "latitude":47.6287752,
+                "longitude":-122.3423192
+            }
+        }
+    }
+
+
     directionsService.route({
         origin: currentPosition.coords.latitude + ", " + currentPosition.coords.longitude,
         destination: destinationName,
@@ -184,6 +199,7 @@ function calculateAndDisplayRoute(directionsService, destinationName, travelMode
 function getDirectionFromGoogle(){
     numberOfRespondRecived=0;
     googleDirectionRespond={};
+    
     var desString = document.getElementById("autocomplete").value;
     calculateAndDisplayRoute(directionsService, desString, 'DRIVING');
     calculateAndDisplayRoute(directionsService, desString, 'BICYCLING');
