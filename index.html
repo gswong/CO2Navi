@@ -64,7 +64,18 @@
                 var LABELS = giveDateData();
                 var DATA_1 = giveCo2Data();
                 
-                var DATA_TEST = [ 2, 2, 10, 19, 14, 9, 10, 8, 10, 19 ];
+                var DATA_TEST = [ 0, 2, 10, 19, 14, 9, 10, 8, 10, 30 ];
+                
+                $.getJSON("feed.json", function (data) {
+
+                    for (var i=0; i<10; i++)
+                    {
+
+                        DATA_TEST[i] = (data[i].co2Saved);
+
+                    }
+
+                });
                 
                 
                 var data = {    
