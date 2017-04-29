@@ -226,11 +226,41 @@ function gotAllRespond(){
     var order = [ 'DRIVING', 'TRANSIT', 'BICYCLING', 'WALKING' ];
 
     var drivingDistance = googleDirectionRespond['DRIVING'].distance.value;
+    
+    var co2NumberBasedOnMode = 999; //AA
+
+	//START BY AA
+    for (var i =0; i<4; i++){
+        var currentMode = order[i];
+		
+		var co2NumberBasedOnMode = 999;
+		
+		switch (currentMode) {
+		  case "DRIVING":
+			var co2NumberBasedOnMode = 1.2;
+			break;
+		  case 'TRANSIT' :
+			var co2NumberBasedOnMode = 1.2-0.23;
+			break;
+		  case 'BICYCLING' :
+			var co2NumberBasedOnMode = 0;
+			break;
+		  case "WALKING":
+			var co2NumberBasedOnMode = 0;
+			break;
+		  default:
+			console.log("Something went wrong with showing you CO2 levels.");
+			break;
+		}
+	//END BY AA
+    
+    
+    
 
     for (var i =0; i<4; i++){
         var currentMode = order[i];
 
-        var co2Level = drivingDistance - googleDirectionRespond[currentMode].distance.value;  //some number?
+        var co2Level = co2NumberBasedOnMode * (drivingDistance - googleDirectionRespond[currentMode].distance.value);  //some number?
 
         var ul=document.getElementById("tp");
         var myList = '<li><a href="'+googleDirectionRespond[currentMode].googleMapUrl+'" onclick="updateTravelHistory(\''+currentMode+'\')">';
