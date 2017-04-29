@@ -260,7 +260,7 @@ function gotAllRespond(){
     for (var i =0; i<4; i++){
         var currentMode = order[i];
 
-        var co2Level = co2NumberBasedOnMode * ((drivingDistance - googleDirectionRespond[currentMode].distance.value)/1609.34);  //some number?
+        var co2Level = co2NumberBasedOnMode * (((drivingDistance - googleDirectionRespond[currentMode].distance.value)/1609.34).toFixed(2));  //some number?
 
         var ul=document.getElementById("tp");
         var myList = '<li><a href="'+googleDirectionRespond[currentMode].googleMapUrl+'" onclick="updateTravelHistory(\''+currentMode+'\')">';
