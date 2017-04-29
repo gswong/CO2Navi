@@ -18,6 +18,6 @@ function getDateTimeString( t ) { //t = Date.getTime(); (MS since 1970)
     // e.x. 2017/183/18/24 = 24th min of 18th hour of 183rd day of 2017
     
 
-    var res =  y.toString() + "/" + day.toString() + " " + hour.toString() + ":" + mins.toString();
+    var res =  day.toString() + " " + hour.toString() + ":" + mins.toString();
     return res;
 }

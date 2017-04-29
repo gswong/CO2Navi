@@ -11,6 +11,9 @@
     <script src="index.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo0fju8qeIKhTcsnxtnSlmz3dKeWuc9o&libraries=places&callback=initMap"
         async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+    <script src="chartData.js"></script>
+    <script src="dateTimeHelper.js"></script>
 
 </head>
 <body>
@@ -52,8 +55,52 @@
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-        <div>Saving History</div>
-        <img src="http://core0.staticworld.net/images/article/2015/03/health-app-steps-100573353-large.png" style="width:100%"/>
+        <div>CO2 Savings</div>
+        <!--<img src="examplechart.PNG" style="width:40%"/>-->
+        
+        <!--<h1>Your Friends' Contributions!</h1>-->
+        <canvas id="test" width="500" height="500"></canvas>
+            <script>
+                var LABELS = giveDateData();
+                var DATA_1 = giveCo2Data();
+                
+                var DATA_TEST = [ 2, 2, 10, 19, 14, 9, 10, 8, 10, 19 ];
+                
+                
+                var data = {    
+                    labels: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                    //[LABELS[0], LABELS[1], LABELS[2], LABELS[3], LABELS[4], LABELS[5], LABELS[6], LABELS[7], LABELS[8], LABELS[9]]
+                    datasets: [
+                        {
+                            label: "Your Friends' Contributions!",
+                            fill: false,
+                            lineTension: 0,
+                            backgroundColor: "rgba(75,192,192,1)",
+                            borderColor: "rgba(10,250,0,1)",
+                            fill: false,              
+                            
+                            pointBorderColor: "rgba(75,192,192,1)",
+                            borderWidth: 4,
+                            
+                            pointBorderWidth: 2,
+                            pointHoverRadius: 8,
+                            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                            
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 2,
+                            pointHitRadius: 10,
+                            data: DATA_TEST,
+                            //[Number(DATA_1[0]), Number(DATA_1[1]), Number(DATA_1[2]), Number(DATA_1[3]), Number(DATA_1[4]), Number(DATA_1[5]), Number(DATA_1[6]), Number(DATA_1[7]), Number(DATA_1[8]), Number(DATA_1[9])]
+                            spanGaps: true,
+                        }
+                    ]
+                };
+            // Get the context of the canvas element we want to select
+            var test = document.getElementById("test").getContext("2d");
+            new Chart(test).Line(data);
+                
+        </script>
+        
 
         <ul data-role="listview" data-inset="true" data-divider-theme="a" id="feed">
             <li data-role="list-divider">Feed</li>
