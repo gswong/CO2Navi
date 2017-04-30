@@ -4,3 +4,17 @@ Conventional: 0.637
 Bus: 5.031
 Train: 13.189
 Subway: 114
+
+
+SECOND PASS NUMBERS (USED FOR HACKATHON:)
+source: http://www.sightline.org/maps-and-graphics/climate-co2bymode/
+	
+Car: 1.2
+	
+Bus: 0.23
+  
+Light Rail: 0.23
+		
+Bike 0.1 
+	
+Walk:0.1 
