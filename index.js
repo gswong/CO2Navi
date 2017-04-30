@@ -240,13 +240,13 @@ function gotAllRespond(){
 			var co2NumberBasedOnMode = 1.2;
 			break;
 		  case 'TRANSIT' :
-			var co2NumberBasedOnMode = 1.2-0.23;
+			var co2NumberBasedOnMode = 0.23;
 			break;
 		  case 'BICYCLING' :
-			var co2NumberBasedOnMode = 0.00001;
+			var co2NumberBasedOnMode = 0.0;
 			break;
 		  case "WALKING":
-			var co2NumberBasedOnMode = 0.00001;
+			var co2NumberBasedOnMode = 0.0;
 			break;
 		  default:
 			console.log("Something went wrong with showing you CO2 levels.");
@@ -257,9 +257,9 @@ function gotAllRespond(){
         var currentMode = order[i];
 
         console.log(co2NumberBasedOnMode);// FOR TESTING
-	//googleDirectionRespond[currentMode].distance.value RETURNS DISTANCE IN METERS, SO DIVIDE BY 1609.34 TO CONVERT TO MILES
-        var worstCo2Level = (1.2 * ((googleDirectionRespond[currentMode].distance.value)/1609.34)).toFixed(2);  //some number?
-        var co2Level = (co2NumberBasedOnMode * ((googleDirectionRespond[currentMode].distance.value)/1609.34)).toFixed(2);  //some number?
+	    //googleDirectionRespond[currentMode].distance.value RETURNS DISTANCE IN METERS, SO DIVIDE BY 1609.34 TO CONVERT TO MILES
+        var worstCo2Level = 1.2 * ((googleDirectionRespond['DRIVING'].distance.value)/1609.34);  // CO2 from driving
+        var co2Level = co2NumberBasedOnMode * ((googleDirectionRespond[currentMode].distance.value)/1609.34);  //some number?
         var co2Savings = worstCo2Level - co2Level;
 
         var ul=document.getElementById("tp");
