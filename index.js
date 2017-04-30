@@ -256,7 +256,8 @@ function gotAllRespond(){
     
         var currentMode = order[i];
 
-        console.log(co2NumberBasedOnMode);
+        console.log(co2NumberBasedOnMode);// FOR TESTING
+	//googleDirectionRespond[currentMode].distance.value RETURNS DISTANCE IN METERS, SO DIVIDE BY 1609.34 TO CONVERT TO MILES
         var worstCo2Level = (1.2 * ((googleDirectionRespond[currentMode].distance.value)/1609.34)).toFixed(2);  //some number?
         var co2Level = (co2NumberBasedOnMode * ((googleDirectionRespond[currentMode].distance.value)/1609.34)).toFixed(2);  //some number?
         var co2Savings = worstCo2Level - co2Level;
