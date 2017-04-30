@@ -229,6 +229,10 @@ function gotAllRespond(){
     
     var co2NumberBasedOnMode = 999; //AA
 
+    // Clean out old data
+    var ul=document.getElementById("tp");
+    ul.innerHTML="";
+
 	//START BY AA
     for (var i =0; i<4; i++){
         var currentMode = order[i];
@@ -262,7 +266,6 @@ function gotAllRespond(){
         var co2Level = co2NumberBasedOnMode * ((googleDirectionRespond[currentMode].distance.value)/1609.34);  //some number?
         var co2Savings = worstCo2Level - co2Level;
 
-        var ul=document.getElementById("tp");
         var myList = '<li><a href="'+googleDirectionRespond[currentMode].googleMapUrl+'" onclick="updateTravelHistory(\''+currentMode+'\')">';
         myList += '<h2>'+currentMode+'</h2>';
         myList+='<p style="float:left">Distance: '+googleDirectionRespond[currentMode].distance.text+'    ';
