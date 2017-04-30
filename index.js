@@ -243,10 +243,10 @@ function gotAllRespond(){
 			var co2NumberBasedOnMode = 1.2-0.23;
 			break;
 		  case 'BICYCLING' :
-			var co2NumberBasedOnMode = 0.1;
+			var co2NumberBasedOnMode = 0.0001;
 			break;
 		  case "WALKING":
-			var co2NumberBasedOnMode = 0.1;
+			var co2NumberBasedOnMode = 0.0001;
 			break;
 		  default:
 			console.log("Something went wrong with showing you CO2 levels.");
