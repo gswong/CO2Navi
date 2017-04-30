@@ -268,9 +268,8 @@ function gotAllRespond(){
 
         var myList = '<li><a href="'+googleDirectionRespond[currentMode].googleMapUrl+'" onclick="updateTravelHistory(\''+currentMode+'\')">';
         myList += '<h2>'+currentMode+'</h2>';
-        myList+='<p style="float:left">Distance: '+googleDirectionRespond[currentMode].distance.text+'    ';
-        myList+="CO2 saving: "+'</p>';
-        myList+='<p style="float:right; margin:0px"><strong style="font-size:300%;">'+co2Savings.toFixed(2)+'</strong> saving</p>';
+        myList+='<p style="float:left">Distance: '+googleDirectionRespond[currentMode].distance.text+'</p>';
+        myList+='<p style="float:right; margin:0px"><strong style="font-size:300%;">'+co2Savings.toFixed(2)+'</strong> savings</p>';
         myList+='<p class="ui-li-aside">'+googleDirectionRespond[currentMode].duration+'</p>';
         myList+='</a></li>';
         ul.innerHTML+=myList;
