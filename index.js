@@ -133,6 +133,7 @@ function initMap() {
 //google maps direction
 var numberOfRespondRecived=0;
 var googleDirectionRespond={};
+var copyrightText = "";
 
 function calculateAndDisplayRoute(directionsService, destinationName, travelMode) {
     if (typeof(currentPosition)=="undefined"){
@@ -174,6 +175,8 @@ function calculateAndDisplayRoute(directionsService, destinationName, travelMode
             }
             var distance = response.routes[0].legs[0].distance;
             var duration = response.routes[0].legs[0].duration.text;
+            copyrightText = response.routes[0].copyrights;
+            console.log(copyrightText);
 
             // weird bug, the string disappear if I pass it into the function :/
             googleDirectionRespond[travelMode] = {
@@ -231,7 +234,7 @@ function gotAllRespond(){
 
     // Clean out old data
     var ul=document.getElementById("tp");
-    ul.innerHTML="";
+    ul.innerHTML='<center>'+copyrightText+'</center>';
 
 	//START BY AA
     for (var i =0; i<4; i++){
@@ -277,7 +280,6 @@ function gotAllRespond(){
 
         $('#tp').listview('refresh');
     }
-
 
 
 }
