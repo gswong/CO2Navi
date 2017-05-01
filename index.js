@@ -36,9 +36,9 @@ function updateTravelHistory(mode){
     googleDirectionRespond[mode]["time"] = ts;
 
     var trip = {
-            "name": "You", 
+            "name": "You",
             "transportation": mode,
-            "distance": googleDirectionRespond[mode].distance.value, 
+            "distance": googleDirectionRespond[mode].distance.value,
             "co2Saved": 19,
             "date": ts
             }
@@ -68,7 +68,7 @@ var currentPosition;
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(storePosition);
-    } else { 
+    } else {
         console.log("Error: Geolocation is not supported by this browser.");
     }
 }
@@ -148,10 +148,10 @@ function calculateAndDisplayRoute(directionsService, destinationName, travelMode
     directionsService.route({
         origin: currentPosition.coords.latitude + ", " + currentPosition.coords.longitude,
         destination: destinationName,
-        travelMode: travelMode //'DRIVING' 
+        travelMode: travelMode //'DRIVING'
     }, function(response, status) {
         if (status === 'OK') {
-            
+
             var googleMapUrl = "https://www.google.com/maps?daddr="+destinationName.replace(/ /g, "+")+"&dirflg=";
             //* w: walking
             //* b: bicycling
@@ -174,7 +174,7 @@ function calculateAndDisplayRoute(directionsService, destinationName, travelMode
             }
             var distance = response.routes[0].legs[0].distance;
             var duration = response.routes[0].legs[0].duration.text;
-            
+
             // weird bug, the string disappear if I pass it into the function :/
             googleDirectionRespond[travelMode] = {
                 "distance": distance,
@@ -199,7 +199,7 @@ function calculateAndDisplayRoute(directionsService, destinationName, travelMode
 function getDirectionFromGoogle(){
     numberOfRespondRecived=0;
     googleDirectionRespond={};
-    
+
     var desString = document.getElementById("autocomplete").value;
     calculateAndDisplayRoute(directionsService, desString, 'DRIVING');
     calculateAndDisplayRoute(directionsService, desString, 'BICYCLING');
@@ -213,7 +213,7 @@ function getDirectionFromGoogle(){
 
 
 function getDirectionRespond(distance, duration, googleMapUrl, travelMode){
-    
+
     numberOfRespondRecived++;
     if (numberOfRespondRecived>=4){ //get all respond
         gotAllRespond();
@@ -226,7 +226,7 @@ function gotAllRespond(){
     var order = [ 'DRIVING', 'TRANSIT', 'BICYCLING', 'WALKING' ];
 
     var drivingDistance = googleDirectionRespond['DRIVING'].distance.value;
-    
+
     var co2NumberBasedOnMode = 999; //AA
 
     // Clean out old data
@@ -236,9 +236,9 @@ function gotAllRespond(){
 	//START BY AA
     for (var i =0; i<4; i++){
         var currentMode = order[i];
-		
+
 		var co2NumberBasedOnMode = 999;
-		
+
 		switch (currentMode) {
 		  case "DRIVING":
 			var co2NumberBasedOnMode = 1.2;
@@ -257,7 +257,7 @@ function gotAllRespond(){
 			break;
 		}
 	//END BY AA
-    
+
         var currentMode = order[i];
 
         console.log(co2NumberBasedOnMode);// FOR TESTING
@@ -269,7 +269,7 @@ function gotAllRespond(){
         var myList = '<li><a href="'+googleDirectionRespond[currentMode].googleMapUrl+'" onclick="updateTravelHistory(\''+currentMode+'\')">';
         myList += '<h2>'+currentMode+'</h2>';
         myList+='<p style="float:left">Distance: '+googleDirectionRespond[currentMode].distance.text+'</p>';
-        myList+='<p style="float:right; margin:0px"><strong style="font-size:300%;">'+co2Savings.toFixed(2)+'</strong> savings</p>';
+        myList+='<p style="float:right; margin:0px"><strong style="font-size:300%;">'+co2Savings.toFixed(1)+'</strong> lbs CO2 savings</p>';
         myList+='<p class="ui-li-aside">'+googleDirectionRespond[currentMode].duration+'</p>';
         myList+='</a></li>';
         ul.innerHTML+=myList;
